@@ -1,6 +1,10 @@
 name: Trigger Notice Update on a CRON Schedule
 
 on:
+  push:
+    branches:
+      - main
+      - 'test/**'
   schedule:
     # Runs "at every 10 minute" (see https://crontab.guru)
     - cron: '*/5 * * * *'
