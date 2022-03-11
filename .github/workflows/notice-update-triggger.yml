@@ -18,10 +18,10 @@ jobs:
           curl -X GET $URL/new \
           -H "Authorization: Bearer $API_KEY"
 
-    - name: Prod cURL request
-      env:
-        URL: ${{ secrets.NOTICE_PROD_URL }}
-        API_KEY: ${{ secrets.KURING_API_KEY }}
-      run: |
-        curl -X GET $URL/new \
-        -H "Authorization: Bearer $API_KEY"
+#    - name: Prod cURL request
+#      env:
+#        URL: ${{ secrets.NOTICE_PROD_URL }}
+#        API_KEY: ${{ secrets.KURING_API_KEY }}
+#      run: |
+#        curl -X GET $URL/new \
+#        -H "Authorization: Bearer $API_KEY"
