@@ -3,15 +3,16 @@ name: Trigger Notice Update on a CRON Schedule
 on:
   schedule:
     # Runs "at every 10 minute" (see https://crontab.guru)
-    - cron: '*/1 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
     name: Trigger Notice Update
     runs-on: ubuntu-latest
     steps:
-      - name: cURL request
-        run: |
+    - name: cURL request
+      env:
+        URL: ${{ secrets.NOTICE_URL }}
+      run: curl -X GET $URL
 #          curl -X GET ${{ secrets.NOTICE_URL }}/new \
 #          -H "Authorization: Bearer ${{ secrets.KURING_API_KEY }}"
-          curl -X GET ${{ secrets.NOTICE_URL }}
