@@ -1,0 +1,27 @@
+name: Trigger User Update on a CRON Schedule
+
+on:
+  schedule:
+    # Runs "At 00:00 on day-of-month 14 and 28" (see https://crontab.guru)
+    - cron: '0 0 14,28 * *'
+
+jobs:
+  schedule:
+    name: Trigger User Update
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dev cURL request
+      env:
+        URL: ${{ secrets.USER_DEV_URL }}
+        API_KEY: ${{ secrets.KURING_API_KEY }}
+      run: |
+        curl -X GET $DEV_URL/validation \
+        -H "Authorization: Bearer $API_KEY"
+
+    - name: Prod cURL request
+      env:
+        URL: ${{ secrets.USER_PROD_URL }}
+        API_KEY: ${{ secrets.KURING_API_KEY }}
+      run: |
+        curl -X GET $URL/validation \
+        -H "Authorization: Bearer $API_KEY"
