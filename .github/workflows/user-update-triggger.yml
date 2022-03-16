@@ -15,7 +15,7 @@ jobs:
         URL: ${{ secrets.USER_DEV_URL }}
         API_KEY: ${{ secrets.KURING_API_KEY }}
       run: |
-        curl -X GET $DEV_URL/validation \
+        curl -X GET $URL/validation \
         -H "Authorization: Bearer $API_KEY"
 
 #    - name: Prod cURL request
