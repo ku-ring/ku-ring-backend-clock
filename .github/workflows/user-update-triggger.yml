@@ -3,7 +3,7 @@ name: Trigger User Update on a CRON Schedule
 on:
   schedule:
     # Runs "At 00:00 on day-of-month 14 and 28" (see https://crontab.guru)
-    - cron: '0 0 14,28 * *'
+    - cron: '30 1 14,28 * *'
 
 jobs:
   schedule:
